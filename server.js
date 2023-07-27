@@ -13,8 +13,11 @@ const csrfProtection = csrf({ cookie: true });
 const app = express();
 
 //db
+console.log(process.env.DATABASE);
 mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
+    user: process.env.DATABSE_USER,
+    pass: process.env.DATABASE_PASS,
     useUnifiedTopology: true,
 })
 .then(() => console.log("**DB CONNECTED**"))
